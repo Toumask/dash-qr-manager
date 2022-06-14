@@ -1,0 +1,11 @@
+include dash_qr_manager/dash_qr_manager.min.js
+include dash_qr_manager/dash_qr_manager.min.js.map
+include dash_qr_manager/async-*.js
+include dash_qr_manager/async-*.js.map
+include dash_qr_manager/*-shared.js
+include dash_qr_manager/*-shared.js.map
+include dash_qr_manager/metadata.json
+include dash_qr_manager/package-info.json
+include README.md
+include LICENSE
+include package.json

@@ -1,0 +1,141 @@
+{
+  "src/lib/components/DashQrGenerator.react.js": {
+    "description": "Dash QR Code Generator\r\nfor more information: https://www.npmjs.com/package/react-google-qrcode",
+    "displayName": "DashQrGenerator",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The style of the QR code."
+      },
+      "data": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The data to encode."
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Image size in pixels (width x height). Min value: 30, Max value: 547"
+      },
+      "framed": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Adds a frame to the image"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/DashQrReader.react.js": {
+    "description": "Dash QR Code Reader\r\nfor more information: https://www.npmjs.com/package/react-qr-reader",
+    "displayName": "DashQrReader",
+    "methods": [
+      {
+        "name": "onResult",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "params",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The style of the QR code."
+      },
+      "videoId": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID for the video element"
+      },
+      "scanDelay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The scan period for the QR hook"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "ClassName for the container element."
+      },
+      "containerStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style object for the container element."
+      },
+      "videoContainerStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style object for the video container element."
+      },
+      "videoStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style object for the video element."
+      },
+      "result": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "decoded data"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  }
+}
