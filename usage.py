@@ -8,12 +8,12 @@ app = dash.Dash(__name__)
 app.layout = html.Div([
     dqm.DashQrGenerator(
         id='qr-code',
-        data='Hallo World!',
+        data='Hallo',
         framed=True,
     ),
     dqm.DashQrReader(
         id='qr-code-reader',
-        style={'width': '100%'}
+        style={'width': '50%'}
     ),
     html.Div(id='output'),
     html.Div(id='output2')

@@ -1,6 +1,6 @@
 {
   "name": "dash_qr_manager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dash component to create and read QR codes.",
   "main": "build/index.js",
   "scripts": {

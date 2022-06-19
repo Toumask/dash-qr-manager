@@ -9,10 +9,6 @@ import {QrReader} from "react-qr-reader";
  */
 
 export default class DashQrReader extends Component {
-    onResult(params) {
-        var result = params.result
-        this.props.setProps({result : result})
-    }
 
     render() {
         const {
@@ -30,7 +26,16 @@ export default class DashQrReader extends Component {
         return (
             <div id={id}>
                 <QrReader
-                    onResult={this.onResult.bind(this)}
+                    onResult={(result, error) => {
+                        if (!!result) {
+                            console.log(result)
+                            console.log(result?.text)
+                            this.props.setProps({result : result?.text})
+                          }
+                          if (!!error) {
+                            console.info(error)
+                          }
+                      }}
                     style={style}
                     videoId={videoId}
                     scanDelay={scanDelay}

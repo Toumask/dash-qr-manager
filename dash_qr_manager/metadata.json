@@ -51,20 +51,7 @@
   "src/lib/components/DashQrReader.react.js": {
     "description": "Dash QR Code Reader\r\nfor more information: https://www.npmjs.com/package/react-qr-reader",
     "displayName": "DashQrReader",
-    "methods": [
-      {
-        "name": "onResult",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "params",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
