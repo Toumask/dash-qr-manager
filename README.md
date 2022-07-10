@@ -1,96 +1,135 @@
-# Dash QR Manager
+<p>
+    <img src="https://badgen.net/pypi/license/dash-qr-manager">
+    <a href="https://pypi.org/project/dash-mantine-components/">
+    <img src="https://badgen.net/pypi/v/dash-qr-manager">
+    </a>
+    <img src="https://static.pepy.tech/personalized-badge/dash-qr-manager?period=total&units=international_system&left_color=black&right_color=yellowgreen&left_text=Downloads">
+</p>
 
-Dash QR Manager is a Dash component library.
+Dash QR Manger is a Dash component based on [react-google-qrcode](https://www.npmjs.com/package/react-google-qrcode) and [react-qr-reader](https://www.npmjs.com/package/react-qr-reader) for creating and reading QR codes.
 
-Get started with:
-1. Install Dash and its dependencies: https://dash.plotly.com/installation
-2. Run `python usage.py`
-3. Visit http://localhost:8050 in your web browser
+Installation
+======
+```bash
+pip install dash-qr-manager
+```
 
-## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md)
+Usage
+======
+Creating QR code
+-----
+```python
+import dash_qr_manager as dqm
+import dash
+import dash_html_components as html
 
-### Install dependencies
+app = dash.Dash(__name__)
 
-If you have selected install_dependencies during the prompt, you can skip this part.
+app.layout = html.Div(
+    children=[
+        dqm.DashQrGenerator(
+            id='qr-code',
+            data='http://example.com/',
+            framed=True,
+        )
+    ]
+)
 
-1. Install npm packages
-    ```
-    $ npm install
-    ```
-2. Create a virtual env and activate.
-    ```
-    $ virtualenv venv
-    $ . venv/bin/activate
-    ```
-    _Note: venv\Scripts\activate for windows_
+if __name__ == '__main__':
+    app.run_server(debug=True)
+```
 
-3. Install python packages required to build components.
-    ```
-    $ pip install -r requirements.txt
-    ```
-4. Install the python packages for testing (optional)
-    ```
-    $ pip install -r tests/requirements.txt
-    ```
+Reading QR code
+-----
+```python
+import dash_qr_manager as dqm
+import dash
+from dash.dependencies import Input, Output
+import dash_html_components as html
 
-### Write your component code in `src/lib/components/DashQrGenerator.react.js`.
+app = dash.Dash(__name__)
 
-- The demo app is in `src/demo` and you will import your example component code into your demo app.
-- Test your code in a Python environment:
-    1. Build your code
-        ```
-        $ npm run build
-        ```
-    2. Run and modify the `usage.py` sample dash app:
-        ```
-        $ python usage.py
-        ```
-- Write tests for your component.
-    - A sample test is available in `tests/test_usage.py`, it will load `usage.py` and you can then automate interactions with selenium.
-    - Run the tests with `$ pytest tests`.
-    - The Dash team uses these types of integration tests extensively. Browse the Dash component code on GitHub for more examples of testing (e.g. https://github.com/plotly/dash-core-components)
-- Add custom styles to your component by putting your custom CSS files into your distribution folder (`dash_qr_manager`).
-    - Make sure that they are referenced in `MANIFEST.in` so that they get properly included when you're ready to publish your component.
-    - Make sure the stylesheets are added to the `_css_dist` dict in `dash_qr_manager/__init__.py` so dash will serve them automatically when the component suite is requested.
-- [Review your code](./review_checklist.md)
+app.layout = html.Div(
+    children=[
+        dqm.DashQrReader(
+            id='qr-code-reader',
+            style={'width': '50%'}
+        ),
+        html.Div(id='qr-code-data')
+    ]
+)
 
-### Create a production build and publish:
 
-1. Build your code:
-    ```
-    $ npm run build
-    ```
-2. Create a Python distribution
-    ```
-    $ python setup.py sdist bdist_wheel
-    ```
-    This will create source and wheel distribution in the generated the `dist/` folder.
-    See [PyPA](https://packaging.python.org/guides/distributing-packages-using-setuptools/#packaging-your-project)
-    for more information.
+@app.callback(
+    Output('qr-code-data', 'children'),
+    Input('qr-code-reader', 'result')
+)
+def code(qr_code_data):
+    return qr_code_data
 
-3. Test your tarball by copying it into a new environment and installing it locally:
-    ```
-    $ pip install dash_qr_manager-0.0.1.tar.gz
-    ```
 
-4. If it works, then you can publish the component to NPM and PyPI:
-    1. Publish on PyPI
-        ```
-        $ twine upload dist/*
-        ```
-    2. Cleanup the dist folder (optional)
-        ```
-        $ rm -rf dist
-        ```
-    3. Publish on NPM (Optional if chosen False in `publish_on_npm`)
-        ```
-        $ npm publish
-        ```
-        _Publishing your component to NPM will make the JavaScript bundles available on the unpkg CDN. By default, Dash serves the component library's CSS and JS locally, but if you choose to publish the package to NPM you can set `serve_locally` to `False` and you may see faster load times._
+if __name__ == '__main__':
+    app.run_server(debug=True)
+```
 
-5. Share your component with the community! https://community.plotly.com/c/dash
-    1. Publish this repository to GitHub
-    2. Tag your GitHub repository with the plotly-dash tag so that it appears here: https://github.com/topics/plotly-dash
-    3. Create a post in the Dash community forum: https://community.plotly.com/c/dash
+Documentation
+======
+DashQrGenerator
+-----
+```
+Keyword arguments:
+
+- id (string; optional):
+    The ID used to identify this component in Dash callbacks.
+
+- data (string; optional):
+    The data to encode.
+
+- framed (boolean; optional):
+    Adds a frame to the image.
+
+- size (number; optional):
+    Image size in pixels (width x height). Min value: 30, Max value:
+    547.
+
+- style (dict; optional):
+    The style of the QR code.
+
+for more information: https://www.npmjs.com/package/react-google-qrcode
+```
+
+DashQrReader
+-----
+```
+Keyword arguments:
+
+- id (string; optional):
+    The ID used to identify this component in Dash callbacks.
+
+- className (string; optional):
+    ClassName for the container element.
+
+- containerStyle (dict; optional):
+    Style object for the container element.
+
+- result (string; optional):
+    decoded data.
+
+- scanDelay (number; optional):
+    The scan period for the QR hook.
+
+- style (dict; optional):
+    The style of the QR code.
+
+- videoContainerStyle (dict; optional):
+    Style object for the video container element.
+
+- videoId (string; optional):
+    The ID for the video element.
+
+- videoStyle (dict; optional):
+    Style object for the video element.
+
+for more information: https://www.npmjs.com/package/react-qr-reader
+```

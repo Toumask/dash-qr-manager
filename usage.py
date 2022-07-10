@@ -5,30 +5,28 @@ import dash_html_components as html
 
 app = dash.Dash(__name__)
 
-app.layout = html.Div([
-    dqm.DashQrGenerator(
-        id='qr-code',
-        data='Hallo',
-        framed=True,
-    ),
-    dqm.DashQrReader(
-        id='qr-code-reader',
-        style={'width': '50%'}
-    ),
-    html.Div(id='output'),
-    html.Div(id='output2')
-])
+app.layout = html.Div(
+    children=[
+        dqm.DashQrGenerator(
+            id='qr-code',
+            data='http://example.com/',
+            framed=True,
+        ),
+        dqm.DashQrReader(
+            id='qr-code-reader',
+            style={'width': '50%'}
+        ),
+        html.Div(id='qr-code-data')
+    ]
+)
 
 
-@app.callback(Output('output', 'children'), [Input('qr-code', 'data')])
-def display_output(value):
-    return 'You have entered {}'.format(value)
-
-
-@app.callback(Output('output2', 'children'), Input('qr-code-reader', 'result'))
-def code(result):
-    print(result)
-    return result
+@app.callback(
+    Output('qr-code-data', 'children'),
+    Input('qr-code-reader', 'result')
+)
+def code(qr_code_data):
+    return qr_code_data
 
 
 if __name__ == '__main__':
