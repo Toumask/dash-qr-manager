@@ -6,7 +6,7 @@
     <img src="https://static.pepy.tech/personalized-badge/dash-qr-manager?period=total&units=international_system&left_color=black&right_color=yellowgreen&left_text=Downloads">
 </p>
 
-Dash QR manger is a wrapper around [react-google-qrcode](https://www.npmjs.com/package/react-google-qrcode) and [react-qr-reader](https://www.npmjs.com/package/react-qr-reader).
+Dash QR manager is a wrapper around [react-google-qrcode](https://www.npmjs.com/package/react-google-qrcode) and [react-qr-reader](https://www.npmjs.com/package/react-qr-reader).
 
 Installation
 ======
