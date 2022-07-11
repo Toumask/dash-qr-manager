@@ -1,6 +1,6 @@
 Package: dashQrManager
 Title: Dash component to create and read QR codes.
-Version: 0.0.3
+Version: 0.0.4
 Description: Dash component to create and read QR codes.
 Depends: R (>= 3.0.2)
 Imports: 

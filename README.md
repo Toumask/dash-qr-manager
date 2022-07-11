@@ -1,12 +1,12 @@
 <p>
     <img src="https://badgen.net/pypi/license/dash-qr-manager">
-    <a href="https://pypi.org/project/dash-mantine-components/">
+    <a href="https://pypi.org/project/dash-qr-manager/">
     <img src="https://badgen.net/pypi/v/dash-qr-manager">
     </a>
     <img src="https://static.pepy.tech/personalized-badge/dash-qr-manager?period=total&units=international_system&left_color=black&right_color=yellowgreen&left_text=Downloads">
 </p>
 
-Dash QR Manger is a Dash component based on [react-google-qrcode](https://www.npmjs.com/package/react-google-qrcode) and [react-qr-reader](https://www.npmjs.com/package/react-qr-reader) for creating and reading QR codes.
+Dash QR manger is a wrapper around [react-google-qrcode](https://www.npmjs.com/package/react-google-qrcode) and [react-qr-reader](https://www.npmjs.com/package/react-qr-reader).
 
 Installation
 ======
