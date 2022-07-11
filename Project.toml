@@ -2,7 +2,7 @@
 name = "DashQrManager"
 uuid = "1b08a953-4be3-4667-9a23-eef5e9b7a80c"
 authors = ["Toumaske <krest.toumas@outlook.de>"]
-version = "0.0.2"
+version = "0.0.3"
 
 [deps]
 Dash = "1b08a953-4be3-4667-9a23-3db579824955"
